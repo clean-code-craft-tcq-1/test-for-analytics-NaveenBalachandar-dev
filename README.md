@@ -51,8 +51,7 @@ Test cases
 minimum and maximum values  | input data                                      | Positive and negative readings from sensors
 Invalid input               | invalid data                                    | incorrect sensor data
 count of breaches           | Number of data crossed threshold                | Number of times input data crossed threshold in month
-record trends               | date and time details for data                  | Report when date & time when the sensor reading was   
-                              increased continuously for 30 min                 continuously increasing for 30 minutes
+record trends               | date and time details                           | Report when date & time when the sensor reading was continuously increasing for 30 minutes
 Notification to user        | New data                                        | notification to user when new data is available in report
 
 ### Recognize Fakes and Reality
