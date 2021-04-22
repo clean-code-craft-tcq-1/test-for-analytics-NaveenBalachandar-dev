@@ -1,8 +1,6 @@
 # Test for Analytics
 
-Design tests for Analytics functionality on a Battery Monitoring System.
-
-Fill the parts marked '_enter' in the **Tasks** section below.
+Tests for Analytics functionality on a Battery Monitoring System.
 
 ## Analysis-functionality to be tested
 
@@ -24,52 +22,48 @@ Notification must be sent when a new report is available.
 
 ### List Dependencies
 
-List the dependencies of the Analysis-functionality.
+Dependencies list of the Analysis-functionality.
 
 1. Access to the Server containing the telemetrics in a csv file
-1. _enter dependency
-1. _enter dependency
-
-(add more if needed)
+2. Notification details: how and whom it needs to be notified ? like email,sms,etc., 
+3. When exactly report needs to be stored in server ? End of every week saturday ?
+4. Threshold limit for the data to compute count of breaches
 
 ### Mark the System Boundary
 
-What is included in the software unit-test? What is not? Fill this table.
+System boundary details. What exactly covered in unit test and what is not is listed below.
 
 | Item                      | Included?     | Reasoning / Assumption
-|---------------------------|---------------|---
+|---------------------------|---------------|--------------------------------------------------
 Battery Data-accuracy       | No            | We do not test the accuracy of data
 Computation of maximum      | Yes           | This is part of the software being developed
-Off-the-shelf PDF converter | _enter Yes/No | _enter reasoning
-Counting the breaches       | _enter Yes/No | _enter reasoning
-Detecting trends            | _enter Yes/No | _enter reasoning
-Notification utility        | _enter Yes/No | _enter reasoning
+Off-the-shelf PDF converter | No            | We do not test the PDF converter requirements
+Counting the breaches       | Yes           | This is part of the software being developed
+Detecting trends            | Yes           | This is part of the software being developed
+Notification utility        | Yes           | Notification  is triggered from SW shall be verified.
 
 ### List the Test Cases
 
-Write tests in the form of `<expected output or action>` from `<input>` / when `<event>`
+Test cases 
 
-Add to these tests:
+| expected output in PDF    | Input from CSV                       | Reasoning / Assumption
+|---------------------------|--------------------------------------|--------------------------------------------------
+ minimum and maximum values    input data                             Positive and negative readings from sensors   
+ Invalid input                 invalid data                           incorrect sensor data
+ count of breaches             Number of data crossed threshold       Number of times input data crossed threshold in month  
+ record trends                 date and time details for data         Report when date & time when the sensor reading was continuously 
+                               increased continuously for 30 min      increasing for 30 minutes
+ Notification to user           New data                               notification to user when new data is available in report
 
-1. Write minimum and maximum to the PDF from a csv containing positive and negative readings
-1. Write "Invalid input" to the PDF when the csv doesn't contain expected data
-1. _enter a test
-1. _enter a test
-
-(add more)
 
 ### Recognize Fakes and Reality
 
-Consider the tests for each functionality below.
-In those tests, identify inputs and outputs.
-Enter one part that's real and another part that's faked/mocked.
-
-| Functionality            | Input        | Output                      | Faked/mocked part
-|--------------------------|--------------|-----------------------------|---
-Read input from server     | csv file     | internal data-structure     | Fake the server store
-Validate input             | csv data     | valid / invalid             | None - it's a pure function
-Notify report availability | _enter input | _enter output               | _enter fake or mock
-Report inaccessible server | _enter input | _enter output               | _enter fake or mock
-Find minimum and maximum   | _enter input | _enter output               | _enter fake or mock
-Detect trend               | _enter input | _enter output               | _enter fake or mock
-Write to PDF               | _enter input | _enter output               | _enter fake or mock
+| Functionality            | Input        | Output                               | Faked/mocked part
+|--------------------------|--------------|--------------------------------------|---
+Read input from server     | csv file     | internal data-structure              | Fake the server store
+Validate input             | csv data     | valid / invalid                      | None - it's a pure function
+Notify report availability | csv data     | New data availability  via email/sms | Mocks the Notification  function called or not
+Report inaccessible server | csv data     | yes/no                               | Fake the server store
+Find minimum and maximum   | csv data     | Entries in PDF                       | None - it's a pure function
+Detect trend               | csv data     | No of trends with date and time      | None - it's a pure function
+Write to PDF               | csv data     | Data in PDF                          | Mocks the writes function called or not
