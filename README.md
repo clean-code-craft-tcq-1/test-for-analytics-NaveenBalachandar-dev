@@ -38,10 +38,10 @@ System boundary details. What exactly covered in unit test and what is not is li
 |---------------------------|---------------|--------------------------------------------------
 Battery Data-accuracy       | No            | We do not test the accuracy of data
 Computation of maximum      | Yes           | This is part of the software being developed
+Computation of minimum      | Yes           | This is part of the software being developed 
 Off-the-shelf PDF converter | No            | We do not test the PDF converter requirements
 Counting the breaches       | Yes           | This is part of the software being developed
 Detecting trends            | Yes           | This is part of the software being developed
-Computation of minimum      | Yes           | This is part of the software being developed 
 Notification utility        | Yes           | only Notification is triggered from SW shall be verified.
 
 ### List of Test Cases
@@ -51,7 +51,7 @@ Notification utility        | Yes           | only Notification is triggered fro
 minimum and maximum values  | input data                                      | Positive and negative readings 
 Invalid input               | input data                                      | incorrect readings
 count of breaches           | Number of input data                            | Number of times input data crossed threshold in month
-record trends               | date and time details                           | Report date & time when the sensor reading was continuously increased for 30 minutes
+record trends               | input data with date and time details           | Report date & time when the sensor reading was continuously increased for 30 minutes
 Notification to user        | New data                                        | notification to user when new data is available in report
 
 ### Fakes and Reality in Functionality
