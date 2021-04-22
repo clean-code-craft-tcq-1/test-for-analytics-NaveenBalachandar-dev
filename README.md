@@ -48,7 +48,7 @@ Test cases
 
 | expected output in PDF    | Input from CSV                       | Reasoning / Assumption
 |---------------------------|--------------------------------------|--------------------------------------------------
- minimum and maximum values    input data                             Positive and negative readings from sensors   
+ minimum and maximum values                   input data                             Positive and negative readings from sensors   
  Invalid input                 invalid data                           incorrect sensor data
  count of breaches             Number of data crossed threshold       Number of times input data crossed threshold in month  
  record trends                 date and time details for data         Report when date & time when the sensor reading was continuously 
